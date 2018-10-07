@@ -27,11 +27,11 @@ var commentRoutes    = require("./routes/comments"),
 mongoose.Promise = global.Promise;
 
 // const databaseUri = process.env.MONGODB_URI || 'mongodb://localhost/bestmealprep';
-// const databaseUri = process.env.MONGODB_URI || 'mongodb://mihnea:test123@ds245022.mlab.com:45022/bestmealprep';
+const databaseUri = process.env.MONGODB_URI || 'mongodb://mihnea:test123@ds245022.mlab.com:45022/bestmealprep';
 
 mongoose.set('useFindAndModify', false); // disables warnings
 mongoose.set('useCreateIndex', true); //disables warnings
-mongoose.connect('mongodb://mihnea:test123@ds245022.mlab.com:45022/bestmealprep', { useNewUrlParser: true })
+mongoose.connect(databaseUri, { useNewUrlParser: true })
       .then(() => console.log(`Database connected`))
       .catch(err => console.log(`Database connection error: ${err.message}`));
 
@@ -78,5 +78,5 @@ app.get("*", function(req, res){
 // });
 
 app.listen(process.env.PORT, process.env.IP, function(){
-    console.log("The YelpCamp Server Has Started!");
+    console.log("The BestMealPrep Server Has Started!");
  });
