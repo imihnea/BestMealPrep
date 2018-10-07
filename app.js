@@ -26,7 +26,8 @@ var commentRoutes    = require("./routes/comments"),
 // assign mongoose promise library and connect to database
 mongoose.Promise = global.Promise;
 
-const databaseUri = process.env.MONGODB_URI || 'mongodb://localhost/bestmealprep';
+// const databaseUri = process.env.MONGODB_URI || 'mongodb://localhost/bestmealprep';
+const databaseUri = process.env.MONGODB_URI || 'mongodb://mihnea:test123@ds245022.mlab.com:45022/bestmealprep';
 
 mongoose.set('useFindAndModify', false); // disables warnings
 mongoose.set('useCreateIndex', true); //disables warnings
