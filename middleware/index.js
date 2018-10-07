@@ -47,7 +47,7 @@ module.exports = {
   //   }
   // },
   isSafe: function(req, res, next) {
-    if(req.body.image.match(/^https:\/\/\.com\/.*/)) {
+    if(req.body.image.match(/^https:\/\/\/.*/)) {
       next();
     }else {
       req.flash('error', 'Only images from imgur.com allowed.');
