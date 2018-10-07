@@ -46,12 +46,12 @@ module.exports = {
   //     res.redirect('back');
   //   }
   // },
-  isSafe: function(req, res, next) {
-    if(req.body.image.match(/^https:\/\/\/.*/)) {
-      next();
-    }else {
-      req.flash('error', 'Only images from imgur.com allowed.');
-      res.redirect('back');
-    }
-  }
+  // isSafe: function(req, res, next) {
+  //   if(req.body.image.match(/^https:\/\/\/.*/)) {
+  //     next();
+  //   }else {
+  //     req.flash('error', 'Only images from imgur.com allowed.');
+  //     res.redirect('back');
+  //   }
+  // }
 }
