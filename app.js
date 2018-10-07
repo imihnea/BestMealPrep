@@ -27,11 +27,11 @@ var commentRoutes    = require("./routes/comments"),
 mongoose.Promise = global.Promise;
 
 // const databaseUri = process.env.MONGODB_URI || 'mongodb://localhost/bestmealprep';
-const databaseUri = process.env.MONGODB_URI || 'mongodb://mihnea:test123@ds245022.mlab.com:45022/bestmealprep';
+// const databaseUri = process.env.MONGODB_URI || 'mongodb://mihnea:test123@ds245022.mlab.com:45022/bestmealprep';
 
 mongoose.set('useFindAndModify', false); // disables warnings
 mongoose.set('useCreateIndex', true); //disables warnings
-mongoose.connect(databaseUri, { useNewUrlParser: true })
+mongoose.connect('mongodb://mihnea:test123@ds245022.mlab.com:45022/bestmealprep', { useNewUrlParser: true })
       .then(() => console.log(`Database connected`))
       .catch(err => console.log(`Database connection error: ${err.message}`));
 
