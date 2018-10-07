@@ -3,7 +3,7 @@ var router  = express.Router();
 var meal = require("../models/meal");
 var Comment = require("../models/comment");
 var middleware = require("../middleware");
-var { isLoggedIn, checkUsermeal, checkUserComment, isAdmin, isSafe } = middleware; // destructuring assignment
+var { isLoggedIn, checkUsermeal, checkUserComment, isSafe } = middleware; // destructuring assignment
 
 // Define escapeRegex function for search feature
 function escapeRegex(text) {

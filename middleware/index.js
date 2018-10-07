@@ -29,7 +29,7 @@ module.exports = {
            console.log(err);
            req.flash('error', 'Sorry, that comment does not exist!');
            res.redirect('/meals');
-       } else if(foundComment.author.id.equals(req.user._id) || req.user.isAdmin){
+       } else if(foundComment.author.id.equals (req.user._id)){
             req.comment = foundComment;
             next();
        } else {
@@ -38,16 +38,16 @@ module.exports = {
        }
     });
   },
-  isAdmin: function(req, res, next) {
-    if(req.user.isAdmin) {
-      next();
-    } else {
-      req.flash('error', 'This site is now read only thanks to spam and trolls.');
-      res.redirect('back');
-    }
-  },
+  // isAdmin: function(req, res, next) {
+  //   if(req.user.isAdmin) {
+  //     next();
+  //   } else {
+  //     req.flash('error', 'This site is now read only thanks to spam and trolls.');
+  //     res.redirect('back');
+  //   }
+  // },
   isSafe: function(req, res, next) {
-    if(req.body.image.match(/^https:\/\/i.imgur\.com\/.*/)) {
+    if(req.body.image.match(/^https:\/\/\.com\/.*/)) {
       next();
     }else {
       req.flash('error', 'Only images from imgur.com allowed.');

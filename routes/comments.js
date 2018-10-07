@@ -3,7 +3,7 @@ const router  = express.Router({mergeParams: true});
 const meal = require("../models/meal");
 const Comment = require("../models/comment");
 const middleware = require("../middleware");
-const { isLoggedIn, checkUserComment, isAdmin } = middleware;
+const { isLoggedIn, checkUserComment } = middleware;
 
 //Comments New
 router.get("/new", isLoggedIn, function(req, res){
@@ -50,7 +50,7 @@ router.get("/:commentId/edit", isLoggedIn, checkUserComment, function(req, res){
   res.render("comments/edit", {meal_id: req.params.id, comment: req.comment});
 });
 
-router.put("/:commentId", isAdmin, function(req, res){
+router.put("/:commentId", function(req, res){
    Comment.findByIdAndUpdate(req.params.commentId, req.body.comment, function(err, comment){
        if(err){
           console.log(err);
