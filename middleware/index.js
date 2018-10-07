@@ -14,7 +14,7 @@ module.exports = {
           console.log(err);
           req.flash('error', 'Sorry, that meal does not exist!');
           res.redirect('/meals');
-      } else if(foundmeal.author.id.equals(req.user._id) || req.user.isAdmin){
+      } else if(foundmeal.author.id.equals(req.user._id)){
           req.meal = foundmeal;
           next();
       } else {
