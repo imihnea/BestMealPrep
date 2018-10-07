@@ -73,6 +73,10 @@ app.get("*", function(req, res){
 
 // Port routing
 
-app.listen(port, hostname, () => {
-    console.log(`Server running at http://${hostname}:${port}/`);
-});
+// app.listen(port, hostname, () => {
+//     console.log(`Server running at http://${hostname}:${port}/`);
+// });
+
+app.listen(process.env.PORT, process.env.IP, function(){
+    console.log("The YelpCamp Server Has Started!");
+ });
