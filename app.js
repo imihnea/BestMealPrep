@@ -26,12 +26,11 @@ var commentRoutes    = require("./routes/comments"),
 // assign mongoose promise library and connect to database
 mongoose.Promise = global.Promise;
 
-// const databaseUri = process.env.MONGODB_URI || 'mongodb://localhost/bestmealprep';
-const databaseUri = process.env.MONGODB_URI || 'mongodb://mihnea:test123@ds245022.mlab.com:45022/bestmealprep';
+const DATABASEURL = process.env.DATABASEURL || 'mongodb://localhost/bestmealprep';
 
 mongoose.set('useFindAndModify', false); // disables warnings
 mongoose.set('useCreateIndex', true); //disables warnings
-mongoose.connect(databaseUri, { useNewUrlParser: true })
+mongoose.connect(DATABASEURL, { useNewUrlParser: true })
       .then(() => console.log(`Database connected`))
       .catch(err => console.log(`Database connection error: ${err.message}`));
 
@@ -74,7 +73,7 @@ app.get("*", function(req, res){
 // Port routing
 
 // app.listen(port, hostname, () => {
-//     console.log(`Server running at http://${hostname}:${port}/`);
+    // console.log(`Server running at http://${hostname}:${port}/`);
 // });
 
 app.listen(process.env.PORT, process.env.IP, function(){
